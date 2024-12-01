@@ -7,5 +7,3 @@ RUN apk add gcc python3-dev openssl-dev musl-dev libffi-dev &&\
     pip install --no-cache-dir -r requirements.txt
 
 EXPOSE 8080
-
-ENTRYPOINT ["uvicorn", "main:app", "--reload", "--port", "8080"]
