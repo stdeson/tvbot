@@ -2,6 +2,7 @@ import const
 from structs import *
 from utils import *
 from fastapi import FastAPI, Request
+import globals
 
 app = FastAPI()
 

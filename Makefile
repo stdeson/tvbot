@@ -11,7 +11,7 @@ run:
 	uvicorn main:app --reload --host 0.0.0.0 --port 8080
 
 test:
-	pytest -s test.py -k "test_xxx"
+	pytest -s test.py -k "test_get_asset_currencies"
 
 help:
 	@echo ''
