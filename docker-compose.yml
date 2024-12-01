@@ -17,9 +17,9 @@ services:
       - my-network
 
 
-  tradingview-webhook-bot:
+  tvbot:
     build: ./
-    container_name: tradingview-webhook-bot
+    container_name: tvbot
     ports:
       - '8080:8080'
     restart: unless-stopped

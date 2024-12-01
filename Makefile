@@ -1,5 +1,5 @@
 
-.PHONY: help pull
+.PHONY: help pull run test
 
 pull:
 	git pull
