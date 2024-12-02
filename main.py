@@ -1,14 +1,38 @@
+import traceback
+import ccxt
 import const
 from structs import *
 from utils import *
+from globals import *
 from fastapi import FastAPI, Request
-import globals
 
 app = FastAPI()
 
 @app.post("/api/ping")
 def ping():
     return "pong"
+
+@app.post("/api/test")
+def test():
+    exchange = ccxt.okx({
+        'apiKey': api_key,
+        'secret': secret,
+        'password': password,
+        'options': {
+            'defaultType': 'future',
+            'sandbox': sandbox,
+        },
+        'timeout': 2000,
+    })
+    # 检查连接是否正常
+    try:
+        balance = exchange.fetch_balance()
+        print("Balance:", balance)
+        return "success"
+    except Exception as e:
+        traceback.print_exc()
+        return "fail"
+
 
 
 @app.post("/api/webhook")
