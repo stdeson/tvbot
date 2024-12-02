@@ -14,6 +14,9 @@ def ping():
 
 @app.post("/api/test")
 def test():
+    # 注意这里有个坑， www.okx.com访问不了， 但okx.com能访问，所以在hosts文件里配置一下
+    # 43.199.114.138  www.okx.com
+    # 然后ipconfig /flushdns
     exchange = ccxt.okx({
         'apiKey': api_key,
         'secret': secret,
